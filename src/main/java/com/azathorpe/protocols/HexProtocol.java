@@ -10,7 +10,7 @@ package com.azathorpe.protocols;
  * 0xFF 表示数据包的开始</br>
  * 仅仅只是开始而已 bro...</br>
  * 数据 (Data)：</br>
- * 不定长数据，直到遇到尾部为止</br>
+ * 定长数据 4 字节，表示实际传输的数据</br>
  * 尾部 (Tail)：</br>
  * 固定长度 1 字节</br>
  * 0xFE 表示数据包的结束</br>
@@ -29,14 +29,19 @@ package com.azathorpe.protocols;
  * </br>
  *  - 1.0 (2026年3月31日): 初始版本，包含基本的HEX协议实现
  */
-public class HexProtocol implements Protocol{
-    @Override
-    public byte[] convertBytes(byte[] buffers) {
-        byte[] byteBuffers = new byte[buffers.length + 2];
-        byteBuffers[0] = (byte) 0xFF;
-        System.arraycopy(buffers, 1, byteBuffers, 1, buffers.length);
-        byteBuffers[buffers.length + 1] = (byte) 0xFE;
+public class HexProtocol {
 
+    public static byte[][] convertBytes(byte[] buffers) {
+        byte[][] byteBuffers = new byte[buffers.length / 4 + (buffers.length % 4 == 0 ? 0 : 1)][6];
+        for(int i = 0; i < buffers.length; i++) {
+            int row = i / 4;
+            int col = i % 4 + 1;
+            byteBuffers[row][0] = (byte) 0xFF; // Header
+            byteBuffers[row][col] = buffers[i]; // Data
+            if(col == 4 || i == buffers.length - 1) {
+                byteBuffers[row][5] = (byte) 0xFE; // Tail
+            }
+        }
         return byteBuffers;
     }
 }

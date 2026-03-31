@@ -19,7 +19,7 @@ public class app {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            SerialPortUtils.sendMessage("0");
+            SerialPortUtils.sendMessage("Hello Serial");
         }
 
     }

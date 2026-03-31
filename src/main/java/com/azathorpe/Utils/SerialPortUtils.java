@@ -1,12 +1,15 @@
 package com.azathorpe.Utils;
 
 import com.azathorpe.app;
+import com.azathorpe.protocols.HexProtocol;
+import com.azathorpe.protocols.TxtProtocol;
 import com.fazecast.jSerialComm.SerialPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 /**
  * 关于串口的类
@@ -23,6 +26,11 @@ public class SerialPortUtils {
 
     static SerialPort port;
     static boolean listening = false;
+
+    /**
+     * 标志位，表示单片机是否准备好接受下一个数据
+     */
+    private static boolean isOK = false;
 
     /**
      * 初始化串口
@@ -86,10 +94,11 @@ public class SerialPortUtils {
         }
 
         try {
+            String protocolMessage = TxtProtocol.convertString(message);
             port.openPort();
-            port.getOutputStream().write(("@" + message + "#").getBytes());
+            port.getOutputStream().write(protocolMessage.getBytes());
             port.getOutputStream().flush();
-            log.info("成功发送消息: {}", message);
+            log.info("成功发送消息: {}", protocolMessage);
         } catch (Exception e) {
             log.error("发送消息失败", e);
         } finally {
@@ -109,15 +118,18 @@ public class SerialPortUtils {
         }
 
         try {
+            byte[][] byteBuffers = HexProtocol.convertBytes(buffers);
             port.openPort();
-            byte[] byteBuffers = new byte[buffers.length + 2];
-            byteBuffers[0] = (byte) 0xFF;
-            System.arraycopy(buffers, 1, byteBuffers, 1, buffers.length);
-            byteBuffers[buffers.length + 1] = (byte) 0xFE;
-
-            port.getOutputStream().write(byteBuffers);
-            port.getOutputStream().flush();
-            log.info("成功发送消息: {}", byteBuffers);
+            for(byte[] bytes : byteBuffers) {
+                isOK = false;
+                port.getOutputStream().write(bytes);
+                port.getOutputStream().flush();
+                log.info("成功发送消息: {}", bytes);
+                while (!isOK){
+                    // 等待单片机准备好接受下一个数据
+                    Thread.sleep(100);
+                }
+            }
         } catch (Exception e) {
             log.error("发送消息失败", e);
         } finally {
@@ -138,8 +150,26 @@ public class SerialPortUtils {
                     try {
                         if (port.bytesAvailable() > 0) {
                             int bytesRead = port.readBytes(buffer, buffer.length);
-                            String receivedData = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
-                            log.info("接收数据: {}", receivedData);
+
+                            if(bytesRead == 1)
+                                CommandParse.parse(buffer[0]);
+                            else if(buffer[0] == (byte) 0xFF){
+                                ArrayList<Byte> bytes = new ArrayList<>();
+                                for(byte b : buffer){
+                                    if(b == (byte) 0xFE){
+                                        break;
+                                    }
+                                    bytes.add(b);
+                                }
+                                byte[] dataBytes = new byte[bytes.size() - 2];
+                                for(int i = 1; i < bytes.size() - 1; i++){
+                                    dataBytes[i - 1] = bytes.get(i);
+                                }
+                                log.info("接收数据(HEX): {}", dataBytes);
+                            }else{
+                                String receivedData = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
+                                log.info("接收数据(TXT): {}", receivedData);
+                            }
                         }
                     } catch (Exception e) {
                         System.err.println("读取数据时发生错误: " + e.getMessage());
@@ -154,5 +184,13 @@ public class SerialPortUtils {
             return true;
         }
         return false;
+    }
+
+    public static boolean isIsOK() {
+        return isOK;
+    }
+
+    public static void setIsOK(boolean isOK) {
+        SerialPortUtils.isOK = isOK;
     }
 }

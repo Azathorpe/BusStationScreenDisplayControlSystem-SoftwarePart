@@ -29,10 +29,9 @@ package com.azathorpe.protocols;
  * </br>
  *  - 1.0 (2026年3月31日): 初始版本，包含基本的文本协议实现
  */
-public class TxtProtocol implements Protocol{
+public class TxtProtocol {
 
-    @Override
-    public String convertString(String message) {
-        return "@" + message + "#";
+    public static String convertString(String message) {
+        return "@" + message + "\r\n";
     }
 }
