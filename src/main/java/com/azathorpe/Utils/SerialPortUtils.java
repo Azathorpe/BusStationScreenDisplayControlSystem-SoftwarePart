@@ -45,7 +45,6 @@ public class SerialPortUtils {
             return;
         }
 
-
         //设置串口参数(波特率等等)
         try {
             // 设置标准UART参数
@@ -76,7 +75,9 @@ public class SerialPortUtils {
     }
 
     /**
-     * 发送消息给单片机
+     * 根据协议 发送数据到单片机
+     * 详情参阅 Protocol.MD 文件
+     * @see com.azathorpe.protocols.TxtProtocol 协议
      */
     public static void sendMessage(String message){
         if(port == null){
@@ -86,9 +87,37 @@ public class SerialPortUtils {
 
         try {
             port.openPort();
-            port.getOutputStream().write(message.getBytes());
+            port.getOutputStream().write(("@" + message + "#").getBytes());
             port.getOutputStream().flush();
             log.info("成功发送消息: {}", message);
+        } catch (Exception e) {
+            log.error("发送消息失败", e);
+        } finally {
+            port.closePort();
+        }
+    }
+
+    /**
+     * 根据协议 发送数据到单片机
+     * 详情参阅 Protocol.MD 文件
+     * @see com.azathorpe.protocols.HexProtocol 协议
+     */
+    public static void sendMessage(byte[] buffers){
+        if(port == null){
+            log.error("串口未初始化，无法发送消息");
+            System.exit(-1);
+        }
+
+        try {
+            port.openPort();
+            byte[] byteBuffers = new byte[buffers.length + 2];
+            byteBuffers[0] = (byte) 0xFF;
+            System.arraycopy(buffers, 1, byteBuffers, 1, buffers.length);
+            byteBuffers[buffers.length + 1] = (byte) 0xFE;
+
+            port.getOutputStream().write(byteBuffers);
+            port.getOutputStream().flush();
+            log.info("成功发送消息: {}", byteBuffers);
         } catch (Exception e) {
             log.error("发送消息失败", e);
         } finally {
@@ -111,10 +140,7 @@ public class SerialPortUtils {
                             int bytesRead = port.readBytes(buffer, buffer.length);
                             String receivedData = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
                             log.info("接收数据: {}", receivedData);
-//                            System.out.print("【接收】: ");
-//                            System.out.println(receivedData.replace("\n", "\\n").replace("\r", "\\r"));
                         }
-//                        Thread.sleep(100); // 减少CPU占用
                     } catch (Exception e) {
                         System.err.println("读取数据时发生错误: " + e.getMessage());
                         break;

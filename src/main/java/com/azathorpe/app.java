@@ -14,7 +14,12 @@ public class app {
         System.out.println(SerialPortUtils.startListenMessageThread());
 
         while(!threadPool.isEmpty()){
-
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            SerialPortUtils.sendMessage("0");
         }
 
     }
