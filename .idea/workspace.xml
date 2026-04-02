@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50e228e0-00a0-476c-9e79-b4f618b8239d" name="更改" comment="Simple Update" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_D:/JavaProject/BusStationScreenDisplayControlSystem" value="3BjdQkvSjCGUlsG71kh1q5v8vRI" />
+    </persistenceIdMap>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Azathorpe&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Azathorpe/BusStationScreenDisplayControlSystem-SoftwarePart.git&quot;,
+    &quot;accountId&quot;: &quot;a30be788-bfa9-48d6-b3da-40509a70efa0&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3BjdQkvSjCGUlsG71kh1q5v8vRI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.app.executor": "Run"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="应用程序.app">
+    <configuration name="BlueToothTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFolder.BlueToothTester" />
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestFolder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.azathorpe.app" />
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.azathorpe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataBaseUtilsTest.addQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.azathorpe.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.azathorpe.Utils" />
+      <option name="MAIN_CLASS_NAME" value="com.azathorpe.Utils.DataBaseUtilsTest" />
+      <option name="METHOD_NAME" value="addQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataBaseUtilsTest.removeQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.azathorpe.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.azathorpe.Utils" />
+      <option name="MAIN_CLASS_NAME" value="com.azathorpe.Utils.DataBaseUtilsTest" />
+      <option name="METHOD_NAME" value="removeQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.app" />
+        <item itemvalue="应用程序.BlueToothTester" />
+        <item itemvalue="应用程序.app" />
+        <item itemvalue="JUnit.DataBaseUtilsTest.removeQuery" />
+        <item itemvalue="JUnit.DataBaseUtilsTest.addQuery" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="[feat] 增加了文本发送协议">
+      <option name="closed" value="true" />
+      <created>1774967486118</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774967486118</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[feat] 增加了文本发送协议">
+      <option name="closed" value="true" />
+      <created>1774967499178</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774967499178</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[feat] 增加了文本发送协议">
+      <option name="closed" value="true" />
+      <created>1774976011524</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774976011524</updated>
+    </task>
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="50e228e0-00a0-476c-9e79-b4f618b8239d" name="更改" comment="[feat] 增加了文本发送协议" />
+      <created>1775006405257</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775006405257</updated>
+      <workItem from="1775006408464" duration="3859000" />
+      <workItem from="1775116012781" duration="4994000" />
+      <workItem from="1775132797935" duration="223000" />
+    </task>
+    <task id="LOCAL-00004" summary="Simple Update">
+      <option name="closed" value="true" />
+      <created>1775132981237</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775132981237</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[feat] 增加了文本发送协议" />
+    <MESSAGE value="Simple Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simple Update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/azathorpe/protocols/HexProtocol.java</url>
+          <line>33</line>
+          <properties class="com.azathorpe.protocols.HexProtocol">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/CommandParse.java</url>
+          <line>26</line>
+          <properties class="com.azathorpe.Utils.CommandParse">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
