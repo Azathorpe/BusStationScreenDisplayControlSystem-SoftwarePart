@@ -143,40 +143,54 @@ public class SerialPortUtils {
      */
     public static boolean startListenMessageThread(){
         if(!listening){
-            // 启动读取线程监听来自单片机的数据
             Thread readerThread = new Thread(() -> {
                 byte[] buffer = new byte[1024];
                 while (true) {
                     try {
                         if (port.bytesAvailable() > 0) {
                             int bytesRead = port.readBytes(buffer, buffer.length);
-
-                            if(bytesRead == 1)
-                                CommandParse.parse(buffer[0]);
-                            else if(buffer[0] == (byte) 0xFF){
-                                ArrayList<Byte> bytes = new ArrayList<>();
-                                for(byte b : buffer){
-                                    if(b == (byte) 0xFE){
-                                        break;
-                                    }
-                                    bytes.add(b);
-                                }
-                                byte[] dataBytes = new byte[bytes.size() - 2];
-                                for(int i = 1; i < bytes.size() - 1; i++){
-                                    dataBytes[i - 1] = bytes.get(i);
-                                }
-                                log.info("接收数据(HEX): {}", dataBytes);
-                            }else{
-                                String receivedData = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
-                                log.info("接收数据(TXT): {}", receivedData);
-                            }
+                            CommandParse.parse(buffer, bytesRead);
                         }
                     } catch (Exception e) {
-                        System.err.println("读取数据时发生错误: " + e.getMessage());
+                        log.error("读取数据时发生错误", e);
                         break;
                     }
                 }
             });
+//            // 启动读取线程监听来自单片机的数据
+//            Thread readerThread = new Thread(() -> {
+//                byte[] buffer = new byte[1024];
+//                while (true) {
+//                    try {
+//                        if (port.bytesAvailable() > 0) {
+//                            int bytesRead = port.readBytes(buffer, buffer.length);
+//
+//                            if(bytesRead == 1)
+//                                CommandParse.parse(buffer[0]);
+//                            else if(buffer[0] == (byte) 0xFF){
+//                                ArrayList<Byte> bytes = new ArrayList<>();
+//                                for(byte b : buffer){
+//                                    if(b == (byte) 0xFE){
+//                                        break;
+//                                    }
+//                                    bytes.add(b);
+//                                }
+//                                byte[] dataBytes = new byte[bytes.size() - 2];
+//                                for(int i = 1; i < bytes.size() - 1; i++){
+//                                    dataBytes[i - 1] = bytes.get(i);
+//                                }
+//                                log.info("接收数据(HEX): {}", dataBytes);
+//                            }else{
+//                                String receivedData = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
+//                                log.info("接收数据(TXT): {}", receivedData);
+//                            }
+//                        }
+//                    } catch (Exception e) {
+//                        System.err.println("读取数据时发生错误: " + e.getMessage());
+//                        break;
+//                    }
+//                }
+//            });
             app.threadPool.add(readerThread);
             readerThread.setDaemon(true);
             readerThread.start();

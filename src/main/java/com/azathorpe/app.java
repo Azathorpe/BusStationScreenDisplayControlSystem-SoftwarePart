@@ -1,5 +1,6 @@
 package com.azathorpe;
 
+import com.azathorpe.Utils.DataBaseUtils;
 import com.azathorpe.Utils.SerialPortUtils;
 
 import java.util.ArrayList;
@@ -10,6 +11,9 @@ public class app {
     public static ArrayList<Thread> threadPool = new ArrayList<>();
 
     public static void main(String[] args) {
+        //每次启动系统都可以重置所有汽车状态
+//        DataBaseUtils.resetAllBus();
+
         SerialPortUtils.serialPortInitialization();
         System.out.println(SerialPortUtils.startListenMessageThread());
 
@@ -19,7 +23,6 @@ public class app {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            SerialPortUtils.sendMessage("Hello Serial");
         }
 
     }
