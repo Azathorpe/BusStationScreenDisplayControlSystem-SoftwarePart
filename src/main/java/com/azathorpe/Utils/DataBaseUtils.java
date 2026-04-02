@@ -2,6 +2,7 @@ package com.azathorpe.Utils;
 
 import com.alibaba.fastjson2.JSON;
 import com.azathorpe.Entities.Bus;
+import com.azathorpe.Entities.BusStatue;
 import com.azathorpe.Entities.JDBCConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,6 +93,19 @@ public class DataBaseUtils {
             stmt.executeUpdate();
         } catch (SQLException e) {
             log.error("Failed to execute modifyQuery", e);
+        }
+    }
+
+    /**
+     * @deprecated 重置所有BUS的状态为未到达，主要用于程序启动时重置状态
+     */
+    public static void resetAllBus(){
+        String sql = "UPDATE bus SET busStatue = ? WHERE busID = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setString(1, BusStatue.BUS_NOT_ARRIVED.toString());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
