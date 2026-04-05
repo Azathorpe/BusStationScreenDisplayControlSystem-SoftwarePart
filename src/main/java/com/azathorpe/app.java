@@ -18,11 +18,11 @@ public class app {
         System.out.println(SerialPortUtils.startListenMessageThread());
 
         while(!threadPool.isEmpty()){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            //管理员面板
+            //写完记得push到仓库
+
+
+
         }
 
     }
