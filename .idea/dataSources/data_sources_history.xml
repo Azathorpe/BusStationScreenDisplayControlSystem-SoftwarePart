@@ -1,5 +1,5 @@
 <DataSourcesHistory>
-  <DataSourceFromHistory isRemovedFromProject="true">
+  <DataSourceFromHistory isRemovedFromProject="false">
     <data-source source="LOCAL" name="@localhost" uuid="1f7f42cc-cc0d-4cb8-9e06-244b6881698b">
       <database-info product="MySQL" version="8.0.43" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.0.43" exact-driver-version="8.2">
         <extra-name-characters>#@</extra-name-characters>
@@ -15,14 +15,10 @@
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
-      <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema">
-            <name qname="@" />
-            <name qname="bus" />
-          </node>
+          <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
       <working-dir>$ProjectFileDir$</working-dir>

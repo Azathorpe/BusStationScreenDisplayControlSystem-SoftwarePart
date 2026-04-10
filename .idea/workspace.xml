@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50e228e0-00a0-476c-9e79-b4f618b8239d" name="更改" comment="Simple Update">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/AdminFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/Fonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/JFonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/PopupAddBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/Entities/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Entities/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/DataBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/DataBaseUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/app.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,15 +31,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +56,9 @@
     &quot;accountId&quot;: &quot;a30be788-bfa9-48d6-b3da-40509a70efa0&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://E:/Java_JDK/jdk-21.0.9/lib/src.zip!/java.base/java/lang/NumberFormatException.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2,
   &quot;fromUser&quot;: false
@@ -57,29 +68,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true",
-    "应用程序.app.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;adminPanel&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.app.executor&quot;: &quot;Run&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="应用程序.app">
     <configuration name="BlueToothTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestFolder.BlueToothTester" />
@@ -87,6 +99,32 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="TestFolder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlueToothTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFolder.BlueToothTester" />
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestFolder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.azathorpe.app" />
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.azathorpe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,6 +161,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DataBaseUtilsTest.addQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.azathorpe.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.azathorpe.Utils" />
+      <option name="MAIN_CLASS_NAME" value="com.azathorpe.Utils.DataBaseUtilsTest" />
+      <option name="METHOD_NAME" value="addQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataBaseUtilsTest.removeQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BusStationScreenDisplayControlSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.azathorpe.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.azathorpe.Utils" />
+      <option name="MAIN_CLASS_NAME" value="com.azathorpe.Utils.DataBaseUtilsTest" />
+      <option name="METHOD_NAME" value="removeQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DataBaseUtilsTest.removeQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BusStationScreenDisplayControlSystem" />
       <extension name="coverage">
@@ -142,10 +212,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.app" />
-        <item itemvalue="应用程序.BlueToothTester" />
-        <item itemvalue="应用程序.app" />
         <item itemvalue="JUnit.DataBaseUtilsTest.removeQuery" />
         <item itemvalue="JUnit.DataBaseUtilsTest.addQuery" />
+        <item itemvalue="应用程序.BlueToothTester" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +252,10 @@
       <workItem from="1775006408464" duration="3859000" />
       <workItem from="1775116012781" duration="4994000" />
       <workItem from="1775132797935" duration="223000" />
+      <workItem from="1775632502420" duration="88000" />
+      <workItem from="1775700248846" duration="3119000" />
+      <workItem from="1775718367647" duration="1128000" />
+      <workItem from="1775783994569" duration="1258000" />
     </task>
     <task id="LOCAL-00004" summary="Simple Update">
       <option name="closed" value="true" />
@@ -226,10 +299,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
