@@ -1,13 +1,10 @@
 package com.azathorpe;
 
-import com.alibaba.fastjson2.JSON;
 import com.azathorpe.Entities.Bus;
-import com.azathorpe.Utils.DataBaseUtils;
 import com.azathorpe.Utils.SerialPortUtils;
 import com.azathorpe.panel.AdminFrame;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 // 整个程序的入口 需要作为服务一直挂着这个程序
 // 整个程序原理就是监听串口 然后通过串口和单片机交互

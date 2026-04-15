@@ -8,15 +8,16 @@ import com.azathorpe.app;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
-public class AdminFrame extends JFrame{
-    private JPanel dataPanel = new JPanel(){
-        public int row = 0,col = 7;
+public class AdminFrame extends JFrame {
+    private JPanel dataPanel = new JPanel() {
+        public int row = 0, col = 7;
 
         @Override
         public void paint(Graphics g) {
@@ -29,11 +30,11 @@ public class AdminFrame extends JFrame{
             int cellWidth = width / col;
             int cellHeight = height / (app.allBus.size() + 1);
             //画竖线
-            for(int i = 0; i <= col; i++) {
+            for (int i = 0; i <= col; i++) {
                 g.drawLine(i * cellWidth, 0, i * cellWidth, height);
             }
             //画横线
-            for(int i = 0;i <= app.allBus.size() + 1;i++)
+            for (int i = 0; i <= app.allBus.size() + 1; i++)
                 g.drawLine(0, i * cellHeight, width, i * cellHeight);
 
             repaint();
@@ -44,13 +45,14 @@ public class AdminFrame extends JFrame{
     // 菜单
     private JMenu menu = new JMenu("菜单");
     private JMenuItem refreash = new JMenuItem("刷新");
+    private JMenuItem filter = new JMenuItem("筛选");
     private JMenuItem addBusMenuItem = new JMenuItem("添加汽车");
     private JMenuItem removeBusMenuItem = new JMenuItem("删除汽车");
     private JMenuItem updateBusMenuItem = new JMenuItem("更新汽车");
     private JMenuItem queryBusMenuItem = new JMenuItem("查询汽车");
     private JMenuBar menuBar = new JMenuBar();
 
-    public void init(){
+    public void init() {
         init_Data();
         init_UI();
         init_Event();
@@ -59,7 +61,7 @@ public class AdminFrame extends JFrame{
     /**
      * 初始化UI界面
      */
-    public void init_UI(){
+    public void init_UI() {
         this.setLayout(new BorderLayout());
 
         dataPanel.setBackground(Color.GRAY);
@@ -70,6 +72,7 @@ public class AdminFrame extends JFrame{
         this.setJMenuBar(menuBar);
         menuBar.add(menu);
         menuBar.add(refreash);
+        menuBar.add(filter);
         menu.add(addBusMenuItem);
         menu.add(removeBusMenuItem);
         menu.add(updateBusMenuItem);
@@ -86,7 +89,7 @@ public class AdminFrame extends JFrame{
     /**
      * 初始化事件
      */
-    public void init_Event(){
+    public void init_Event() {
         //添加汽车事件
         addBusMenuItem.addActionListener(e -> {
             PopupAddBus popupAddBus = new PopupAddBus();
@@ -99,6 +102,21 @@ public class AdminFrame extends JFrame{
         refreash.addActionListener(e -> {
             //每次按下这个菜单按钮 刷新汽车
             refreshData();
+        });
+
+        filter.addActionListener(e -> {
+            PopupFilter popupFilter = new PopupFilter();
+            int result = JOptionPane.showConfirmDialog(this, popupFilter, "筛选器", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (result == JOptionPane.OK_OPTION) {
+                System.out.println("OK");
+            }
+
+            Filter.enableFilter = !Filter.enableFilter;
+            //弹出窗口 表示已启用筛选器
+            JOptionPane jOptionPane = new JOptionPane(Filter.enableFilter ? "已启用筛选器" : "已禁用筛选器", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = jOptionPane.createDialog(this, "筛选器");
+            dialog.setModal(false);
+            dialog.setVisible(true);
         });
 
         //每15秒钟 自动刷新汽车
@@ -123,10 +141,11 @@ public class AdminFrame extends JFrame{
             }
         });
     }
+
     /**
      * 初始化数据
      */
-    public void init_Data(){
+    public void init_Data() {
         // 开始的时候更新汽车事件
         queryData();
     }
@@ -134,7 +153,7 @@ public class AdminFrame extends JFrame{
     /**
      * 刷新data里面的数据
      */
-    public void refreshData(){
+    public void refreshData() {
         // 开始的时候更新汽车事件
         queryData();
 
@@ -150,13 +169,13 @@ public class AdminFrame extends JFrame{
         dataPanel.add(JFonts.JLabelX32Font("下一站"));
         dataPanel.add(JFonts.JLabelX32Font("状态"));
 
-        for(Bus bus : app.allBus){
+        for (Bus bus : app.allBus) {
             dataPanel.add(JFonts.JLabelX16Font(bus.getBusID()));
-            dataPanel.add(JFonts.JLabelX16Font(bus.getBusName()));
+            dataPanel.add(JFonts.JLabelX16Font(bus.getBus_name()));
             dataPanel.add(JFonts.JLabelX16Font(bus.getStartTimeInString()));
             dataPanel.add(JFonts.JLabelX16Font(String.valueOf(bus.getTicket())));
             dataPanel.add(JFonts.JLabelX16Font(bus.getDestination()));
-            dataPanel.add(JFonts.JLabelX16Font(bus.getNextStation()));
+            dataPanel.add(JFonts.JLabelX16Font(bus.getNext_station()));
             dataPanel.add(JFonts.JLabelX16Font(bus.getBusStatueInString()));
         }
 
@@ -176,11 +195,20 @@ public class AdminFrame extends JFrame{
             app.allBus.add(JSON.parseObject(JSON.toJSONString(o), Bus.class));
         });
 
+        app.allBus.removeIf(bus -> {
+            if (Filter.enableFilter)
+                //启用筛选器
+                return Filter.match(bus);
+            return true;
+        });
+
+
+
         System.out.println("Updated all bus");
         app.allBus.forEach(System.out::println);
     }
 
-    private void queryData(Filter Filter){
+    private void queryData(Filter Filter) {
         String query = DataBaseUtils.getQuery();
         app.allBus.clear();
         ArrayList arrayList = JSON.parseObject(query, ArrayList.class);
@@ -199,7 +227,7 @@ public class AdminFrame extends JFrame{
         repaint();
     }
 
-    static{
+    static {
 
     }
 

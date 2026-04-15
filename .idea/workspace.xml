@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50e228e0-00a0-476c-9e79-b4f618b8239d" name="更改" comment="Simple Update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/AdminFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/Fonts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/JFonts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/PopupAddBus.java" afterDir="false" />
+    <list default="true" id="50e228e0-00a0-476c-9e79-b4f618b8239d" name="更改" comment="[feat] Admin Frame">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/PopupFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/Entities/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Entities/Bus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/DataBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/DataBaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/app.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/AdminFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/azathorpe/panel/AdminFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/azathorpe/Utils/DataBaseUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/azathorpe/Utils/DataBaseUtilsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,30 +66,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;adminPanel&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;应用程序.app.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "adminPanel",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.app.executor": "Debug"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="应用程序.app">
     <configuration name="BlueToothTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestFolder.BlueToothTester" />
@@ -255,7 +253,12 @@
       <workItem from="1775632502420" duration="88000" />
       <workItem from="1775700248846" duration="3119000" />
       <workItem from="1775718367647" duration="1128000" />
-      <workItem from="1775783994569" duration="1258000" />
+      <workItem from="1775783994569" duration="2943000" />
+      <workItem from="1775788103488" duration="59000" />
+      <workItem from="1775790692499" duration="694000" />
+      <workItem from="1775806225593" duration="7000" />
+      <workItem from="1775806489374" duration="4982000" />
+      <workItem from="1775819709765" duration="2252000" />
     </task>
     <task id="LOCAL-00004" summary="Simple Update">
       <option name="closed" value="true" />
@@ -265,16 +268,36 @@
       <option name="project" value="LOCAL" />
       <updated>1775132981237</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[feat] Admin Frame">
+      <option name="closed" value="true" />
+      <created>1775785387894</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775785387895</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[feat] 增加了文本发送协议" />
     <MESSAGE value="Simple Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simple Update" />
+    <MESSAGE value="[feat] Admin Frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] Admin Frame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -296,6 +319,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/azathorpe/Utils/Filter.java</url>
+          <line>23</line>
+          <properties class="com.azathorpe.Utils.Filter" method="setVal">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

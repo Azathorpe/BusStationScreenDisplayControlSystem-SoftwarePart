@@ -41,26 +41,26 @@ public class DataBaseUtils {
     public static void addQuery(Bus bus) {
         String sql = "";
         if (bus.getBusID().equals("-1"))
-            sql = "INSERT INTO bus (busName, startTime, ticket, destination, nextStation, busStatue) VALUES (?,?,?,?,?,?);";
+            sql = "INSERT INTO bus (bus_name, start_time, ticket, destination, next_station, bus_statue) VALUES (?,?,?,?,?,?);";
         else
-            sql = "INSERT INTO bus (busID, busName, startTime, ticket, destination, nextStation, busStatue) VALUES (?,?,?,?,?,?,?);";
+            sql = "INSERT INTO bus (busID, bus_name, start_time, ticket, destination, next_station, bus_statue) VALUES (?,?,?,?,?,?,?);";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             if (!bus.getBusID().equals("-1")) {
                 stmt.setString(1, bus.getBusID());
-                stmt.setString(2, bus.getBusName());
-                stmt.setString(3, String.valueOf(bus.getStartTime()));
+                stmt.setString(2, bus.getBus_name());
+                stmt.setString(3, String.valueOf(bus.getStart_time()));
                 stmt.setString(4, String.valueOf(bus.getTicket()));
                 stmt.setString(5, bus.getDestination());
-                stmt.setString(6, bus.getNextStation());
-                stmt.setString(7, bus.getBusStatue().name());
+                stmt.setString(6, bus.getNext_station());
+                stmt.setString(7, String.valueOf(bus.getBus_statue().ordinal()));
             }else{
-                stmt.setString(1, bus.getBusName());
-                stmt.setString(2, String.valueOf(bus.getStartTime()));
+                stmt.setString(1, bus.getBus_name());
+                stmt.setString(2, String.valueOf(bus.getStart_time()));
                 stmt.setString(3, String.valueOf(bus.getTicket()));
                 stmt.setString(4, bus.getDestination());
-                stmt.setString(5, bus.getNextStation());
-                stmt.setString(6, bus.getBusStatue().name());
+                stmt.setString(5, bus.getNext_station());
+                stmt.setString(6, String.valueOf(bus.getBus_statue().ordinal()));
             }
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -92,16 +92,16 @@ public class DataBaseUtils {
             stmt.setString(1, BusID);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                log.info("BusID: {}, BusName: {}, StartTime: {}, Ticket: {}, Destination: {}, NextStation: {}, BusStatue: {}",
-                        rs.getString("busID"), rs.getString("busName"), rs.getString("startTime"), rs.getString("ticket"), rs.getString("destination"), rs.getString("nextStation"), rs.getString("busStatue"));
+                log.info("BusID: {}, bus_name: {}, start_time: {}, Ticket: {}, Destination: {}, next_station: {}, bus_statue: {}",
+                        rs.getString("busID"), rs.getString("bus_name"), rs.getString("start_time"), rs.getString("ticket"), rs.getString("destination"), rs.getString("next_station"), rs.getString("bus_statue"));
                 res.add(Bus.getInstance(
                         rs.getString("busID"),
-                        rs.getString("busName"),
-                        Long.parseLong(rs.getString("startTime")),
+                        rs.getString("bus_name"),
+                        Long.parseLong(rs.getString("start_time")),
                         rs.getString("ticket"),
                         rs.getString("destination"),
-                        rs.getString("nextStation"),
-                        BusStatue.valueOf(rs.getString("busStatue"))));
+                        rs.getString("next_station"),
+                        BusStatue.values()[Integer.parseInt((rs.getString("bus_statue")))]));
             }
         } catch (SQLException e) {
             log.error("Failed to execute getQuery", e);
@@ -116,16 +116,16 @@ public class DataBaseUtils {
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                log.info("BusID: {}, BusName: {}, StartTime: {}, Ticket: {}, Destination: {}, NextStation: {}, BusStatue: {}",
-                        rs.getString("busID"), rs.getString("busName"), rs.getString("startTime"), rs.getString("ticket"), rs.getString("destination"), rs.getString("nextStation"), rs.getString("busStatue"));
+                log.info("BusID: {}, bus_name: {}, start_time: {}, Ticket: {}, Destination: {}, next_station: {}, bus_statue: {}",
+                        rs.getString("busID"), rs.getString("bus_name"), rs.getString("start_time"), rs.getString("ticket"), rs.getString("destination"), rs.getString("next_station"), rs.getString("bus_statue"));
                 res.add(Bus.getInstance(
                         rs.getString("busID"),
-                        rs.getString("busName"),
-                        Long.parseLong(rs.getString("startTime")),
+                        rs.getString("bus_name"),
+                        Long.parseLong(rs.getString("start_time")),
                         rs.getString("ticket"),
                         rs.getString("destination"),
-                        rs.getString("nextStation"),
-                        BusStatue.valueOf(rs.getString("busStatue"))));
+                        rs.getString("next_station"),
+                        BusStatue.values()[Integer.parseInt((rs.getString("bus_statue")))]));
             }
         } catch (SQLException e) {
             log.error("Failed to execute getQuery", e);
@@ -135,14 +135,14 @@ public class DataBaseUtils {
 
     // 改
     public static void modifyQuery(Bus bus) {
-        String sql = "UPDATE bus SET busName = ?, startTime = ?, ticket = ?, destination = ?, nextStation = ?, busStatue = ? WHERE busID = ?;";
+        String sql = "UPDATE bus SET bus_name = ?, start_time = ?, ticket = ?, destination = ?, next_station = ?, bus_statue = ? WHERE busID = ?;";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, bus.getBusName());
-            stmt.setString(2, String.valueOf(bus.getStartTime()));
+            stmt.setString(1, bus.getBus_name());
+            stmt.setString(2, String.valueOf(bus.getStart_time()));
             stmt.setString(3, String.valueOf(bus.getTicket()));
             stmt.setString(4, bus.getDestination());
-            stmt.setString(5, bus.getNextStation());
-            stmt.setString(6, bus.getBusStatue().name());
+            stmt.setString(5, bus.getNext_station());
+            stmt.setString(6, bus.getBus_statue().name());
             stmt.setString(7, bus.getBusID());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -154,7 +154,7 @@ public class DataBaseUtils {
      * @deprecated 重置所有BUS的状态为未到达，主要用于程序启动时重置状态
      */
     public static void resetAllBus() {
-        String sql = "UPDATE bus SET busStatue = ? WHERE busID = ?";
+        String sql = "UPDATE bus SET bus_statue = ? WHERE busID = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, BusStatue.BUS_NOT_ARRIVED.toString());
             stmt.executeUpdate();
